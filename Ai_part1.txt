@@ -1,0 +1,18 @@
+inp=int(input("Enter the number of Input strings: "))
+lstnew=[]
+
+for k in range(inp):
+    x=input("Enter the input")
+    lstnew.append(x)
+    
+#lstnew = [ 'ABCD','SNU_', 'U_CH', 'CHEN', 'ENNA', 'NAI.', 'CDEF',]
+def sequencing():    
+    for i in range(len(lstnew)):
+        for j in range(len(lstnew)):
+            if i != j and lstnew[i][-2:] == lstnew[j][:2]:
+                lstnew[i] = lstnew[i] + lstnew[j][2:]
+                lstnew.pop(j)
+                sequencing()
+                return 
+sequencing()
+print(lstnew)
